@@ -15,7 +15,7 @@ print(df.head())
 # Check missing values
 print(df.isnull().sum())
 
-# (Optional) Remove duplicates
+# Remove duplicates
 df.drop_duplicates(inplace=True)
 
 # STEP 5: Visualization
@@ -26,17 +26,30 @@ plt.title("Count of Each Species")
 plt.show()
 
 # 2. Sepal length vs width
-sns.scatterplot(x='sepal_length', y='sepal_width', hue='species', data=df)
+# ERROR: 'sepal_lenght' is incorrect.
+# Correct column name is 'sepal_length'
+sns.scatterplot(
+    x='sepal_lenght',
+    y='sepal_width',
+    hue='species',
+    data=df
+)
 plt.title("Sepal Length vs Width")
 plt.show()
 
 # 3. Petal length distribution
-sns.histplot(df['petal_length'], bins=20)
+sns.histplot(
+    df['petal_length'],
+    bins=20
+)
 plt.title("Petal Length Distribution")
 plt.show()
 
 # 4. Correlation heatmap
-sns.heatmap(df.corr(numeric_only=True), annot=True)
+sns.heatmap(
+    df.corr(numeric_only=True),
+    annot=True
+)
 plt.title("Correlation Heatmap")
 plt.show()
 
